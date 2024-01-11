@@ -1,5 +1,3 @@
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
-
 module Parser (HtmlElement (..), parseHtml) where
 
 {-# HLINT ignore "Use <$" #-}

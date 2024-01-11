@@ -1,10 +1,8 @@
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+
 module Main where
 
 import Parser
-import Renderer
 
 main :: IO ()
-main = case Renderer.render of
-  Just (Parser.HtmlElement _ _ _ children) -> do
-    putStrLn $ "children: " ++ show children
-  Nothing -> putStrLn "Nothing"
+main = print $ Parser.parseHtml "<section dd=\"mmmm\"><a href=\"dawdawda\">daaaaaa</a><img src=\"dawdawda\" alt=\"alt data\" /></section>"
