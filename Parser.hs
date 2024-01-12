@@ -1,15 +1,11 @@
-module Parser (HtmlElement (..), parseHtml) where
+module Parser (HtmlElement (..), parseHtml, Parser (..), htmlValue) where
 
-{-# HLINT ignore "Use <$" #-}
-{-# HLINT ignore "Use $>" #-}
 import Control.Applicative
 import Data.Char
 
 data HtmlElement = HtmlElement String [(String, String)] String [HtmlElement] deriving (Show)
 
-newtype Parser a = Parser
-  { runParser :: String -> Maybe (String, a)
-  }
+newtype Parser a = Parser {runParser :: String -> Maybe (String, a)}
 
 instance Functor Parser where
   fmap f (Parser p) =
